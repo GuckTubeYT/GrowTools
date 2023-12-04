@@ -295,6 +295,10 @@ function process_item_encoder(result) {
             write_buffer_string(mem_pos, result.items[a].str_version_15.length, result.items[a].str_version_15)
             mem_pos += result.items[a].str_version_15.length
         }
+        if (result.version >= 16) {
+            write_buffer_number(mem_pos, 2, result.items[a].int_version_16)
+            mem_pos += 2;
+        }
     }
 }
 
@@ -486,6 +490,10 @@ function item_decoder(file, using_editor) {
                 mem_pos += 2;
                 var str_version_15 = read_buffer_string(arrayBuffer, mem_pos, len);
                 mem_pos += len
+            }
+            if (version >= 16) {
+                var int_version_16 = read_buffer_number(arrayBuffer, mem_pos, 2)
+                mem_pos += 2;
             }
             data_json.items[a] = {}
             data_json.items[a].item_id = item_id

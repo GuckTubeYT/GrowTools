@@ -590,7 +590,7 @@ function item_decoder(file, using_editor) {
             }
             $("#itemsList").DataTable().rows.add(result).draw()
             result = []
-        } else saveData(JSON.stringify(data_json, null, 2), "items.json");
+        } else saveData(JSON.stringify(data_json, null, 4), "items.json");
     };
 };
 

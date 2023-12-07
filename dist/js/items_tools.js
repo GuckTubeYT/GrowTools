@@ -491,10 +491,10 @@ function item_decoder(file, using_editor) {
                 var str_version_15 = read_buffer_string(arrayBuffer, mem_pos, len);
                 mem_pos += len
             }
-            if (version >= 16) {
-                var int_version_16 = read_buffer_number(arrayBuffer, mem_pos, 2)
-                mem_pos += 2;
-            }
+            //if (version >= 16) {
+            //    var int_version_16 = read_buffer_number(arrayBuffer, mem_pos, 2)
+            //    mem_pos += 2;
+            //}
             data_json.items[a] = {}
             data_json.items[a].item_id = item_id
             data_json.items[a].editable_type = editable_type

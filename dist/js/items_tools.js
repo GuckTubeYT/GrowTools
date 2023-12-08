@@ -491,10 +491,10 @@ function item_decoder(file, using_editor) {
                 var str_version_15 = read_buffer_string(arrayBuffer, mem_pos, len);
                 mem_pos += len
             }
-            //if (version >= 16) {
-            //    var int_version_16 = read_buffer_number(arrayBuffer, mem_pos, 2)
-            //    mem_pos += 2;
-            //}
+            if (version >= 16) {
+                var int_version_16 = read_buffer_number(arrayBuffer, mem_pos, 2)
+                mem_pos += 2;
+            }
             data_json.items[a] = {}
             data_json.items[a].item_id = item_id
             data_json.items[a].editable_type = editable_type
@@ -553,6 +553,7 @@ function item_decoder(file, using_editor) {
             data_json.items[a].int_version_14 = int_version_14
             data_json.items[a].data_version_15 = data_version_15
             data_json.items[a].str_version_15 = str_version_15
+            data_json.items[a].int_version_16 = int_version_16
         }
         if (using_editor) {
             if (!$.fn.dataTable.isDataTable("#itemsList")) {
@@ -642,6 +643,7 @@ function editItems(posArray) {
     document.getElementById("int_version_14").value = data_json.items[posArray].int_version_14
     document.getElementById("data_version_15").value = data_json.items[posArray].data_version_15
     document.getElementById("str_version_15").value = data_json.items[posArray].str_version_15
+    document.getElementById("int_version_16").value = data_json.items[posArray].int_version_16
     document.getElementById("editItemsButton").setAttribute("onclick", `processEditItems(${posArray})`)
 }
 
@@ -703,5 +705,6 @@ function processEditItems(posArray) {
     data_json.items[posArray].int_version_14 = document.getElementById("int_version_14").value
     data_json.items[posArray].data_version_15 = document.getElementById("data_version_15").value
     data_json.items[posArray].str_version_15 = document.getElementById("str_version_15").value
+    data_json.items[posArray].int_version_16 = document.getElementById("int_version_16").value
     $("#modal-editItems").modal("hide")
 }

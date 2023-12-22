@@ -699,7 +699,7 @@ function item_decoder(file, using_editor) {
                 mem_pos += 2;
             }
 
-            if (item_id != a) console.log(`Unordered Items ${item_id}`)
+            if (item_id != a) console.log(`Unordered Items at ${a}`)
             
             data_json.items[a] = {}
             data_json.items[a].item_id = item_id

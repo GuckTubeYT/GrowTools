@@ -359,8 +359,8 @@ function process_item_encoder(result, using_txt) {
                     mem_pos += result1[46].length
                 }
                 if (version >= 16) {
-                    write_buffer_number(mem_pos, 2, result1[47])
-                    mem_pos += 2;
+                    write_buffer_string(mem_pos, result1[47].length, result1[47])
+                    mem_pos += result1[47].length
                 }
             }
         }

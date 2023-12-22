@@ -488,8 +488,8 @@ function process_item_encoder(result, using_txt) {
                 mem_pos += result.items[a].str_version_15.length
             }
             if (result.version >= 16) {
-                write_buffer_number(mem_pos, 2, result.items[a].int_version_16)
-                mem_pos += 2;
+                write_buffer_string(mem_pos, result.items[a].str_version_16.length, result.items[a].str_version_16)
+                mem_pos += result.items[a].str_version_16.length
             }
         }
     }
@@ -695,8 +695,10 @@ function item_decoder(file, using_editor) {
                 mem_pos += len
             }
             if (version >= 16) {
-                var int_version_16 = read_buffer_number(arrayBuffer, mem_pos, 2)
+                len = read_buffer_number(arrayBuffer, mem_pos, 2)
                 mem_pos += 2;
+                var str_version_16 = read_buffer_string(arrayBuffer, mem_pos, len);
+                mem_pos += len
             }
 
             if (item_id != a) console.log(`Unordered Items at ${a}`)
@@ -765,7 +767,7 @@ function item_decoder(file, using_editor) {
             data_json.items[a].int_version_14 = int_version_14
             data_json.items[a].data_version_15 = data_version_15
             data_json.items[a].str_version_15 = str_version_15
-            data_json.items[a].int_version_16 = int_version_16
+            data_json.items[a].str_version_16 = str_version_16
         }
         if (using_editor) {
             if (!$.fn.dataTable.isDataTable("#itemsList")) {
@@ -862,7 +864,7 @@ function editItems(posArray) {
     document.getElementById("int_version_14").value = data_json.items[posArray].int_version_14
     document.getElementById("data_version_15").value = data_json.items[posArray].data_version_15
     document.getElementById("str_version_15").value = data_json.items[posArray].str_version_15
-    document.getElementById("int_version_16").value = data_json.items[posArray].int_version_16
+    document.getElementById("str_version_16").value = data_json.items[posArray].str_version_16
     document.getElementById("editItemsButton").setAttribute("onclick", `processEditItems(${posArray})`)
 }
 
@@ -924,6 +926,6 @@ function processEditItems(posArray) {
     data_json.items[posArray].int_version_14 = document.getElementById("int_version_14").value
     data_json.items[posArray].data_version_15 = document.getElementById("data_version_15").value
     data_json.items[posArray].str_version_15 = document.getElementById("str_version_15").value
-    data_json.items[posArray].int_version_16 = document.getElementById("int_version_16").value
+    data_json.items[posArray].str_version_16 = document.getElementById("str_version_16").value
     $("#modal-editItems").modal("hide")
 }

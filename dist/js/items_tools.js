@@ -359,12 +359,15 @@ function process_item_encoder(result, using_txt) {
                     mem_pos += result1[46].length
                 }
                 if (version >= 16) {
+                    write_buffer_number(mem_pos, 2, result1[47].length);
+                    mem_pos += 2;
                     write_buffer_string(mem_pos, result1[47].length, result1[47])
                     mem_pos += result1[47].length
                 }
             }
         }
     } else {
+        console.log("go here")
         write_buffer_number(0, 2, result.version)
         write_buffer_number(2, 4, result.item_count)
         for (let a = 0; a < result.item_count; a++) {
@@ -393,7 +396,7 @@ function process_item_encoder(result, using_txt) {
             encoded_buffer_file[mem_pos++] = result.items[a].is_stripey_wallpaper
             encoded_buffer_file[mem_pos++] = result.items[a].collision_type
 
-            if (result.items[a].break_hits.includes("r")) encoded_buffer_file[mem_pos++] = Number(result.items[a].break_hits.slice(0, -1))
+            if (isNaN(result.items[a].break_hits) && result.items[a].break_hits.includes("r")) encoded_buffer_file[mem_pos++] = Number(result.items[a].break_hits.slice(0, -1))
             else encoded_buffer_file[mem_pos++] = Number(result.items[a].break_hits) * 6
 
             write_buffer_number(mem_pos, 4, result.items[a].drop_chance)
@@ -488,6 +491,8 @@ function process_item_encoder(result, using_txt) {
                 mem_pos += result.items[a].str_version_15.length
             }
             if (result.version >= 16) {
+                write_buffer_number(mem_pos, 2, result.items[a].str_version_16.length);
+                mem_pos += 2;
                 write_buffer_string(mem_pos, result.items[a].str_version_16.length, result.items[a].str_version_16)
                 mem_pos += result.items[a].str_version_16.length
             }
@@ -503,7 +508,7 @@ function process_item_encoder(result, using_txt) {
 
 function item_encoder(file, using_editor) {
     if (using_editor) {
-        process_item_encoder(data_json);
+        process_item_encoder(data_json, 0);
         saveDataBuffer(encoded_buffer_file, "items.dat")
         return encoded_buffer_file = []
     } else {
@@ -512,6 +517,7 @@ function item_encoder(file, using_editor) {
 
         reader.onload = function (e) {
             try {
+                console.log(document.getElementById("using_txt_mode").checked)
                 if (document.getElementById("using_txt_mode").checked) process_item_encoder(e.target.result, 1)
                 else process_item_encoder(JSON.parse(e.target.result), 0)
                 saveDataBuffer(encoded_buffer_file, "items.dat")

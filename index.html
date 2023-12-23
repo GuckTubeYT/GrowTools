@@ -72,6 +72,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="rtconverter.html" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                RT File Converter
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -119,11 +127,11 @@
                     <input type="checkbox" id="using_txt_mode" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-width="85" data-height="0">
                     <br>
                     <br>
-                    <label>Decode items.dat to items.txt</label> <a>(Press "Browse items.dat" and find items.dat file)</a>
+                    <label id="label1">Decode items.dat to items.txt</label> <a>(Press "Browse items.dat" and find items.dat file)</a>
                     <br>
                     <button id="decode_items_dat" class="btn btn-success">Browse items.dat</button>
                     <br><br>
-                    <label>Encode items.txt to items.dat</label> <a>(Press "Browse items.txt" and find items.txt file)</a>
+                    <label id="label2">Encode items.txt to items.dat</label> <a id="label3">(Press "Browse items.txt" and find items.txt file)</a>
                     <br>
                     <button id="encode_items_dat" class="btn btn-success">Browse items.txt</button>
                     <br>
@@ -507,6 +515,31 @@
 <script src="dist/js/items_tools.js"></script>
 <script>
   $(function () {
+    if (document.getElementById("using_txt_mode").checked) {
+      document.getElementById("label1").innerHTML = "Decode items.dat to items.txt"
+      document.getElementById("label2").innerHTML = "Encode items.txt to items.dat"
+      document.getElementById("label3").innerHTML = `(Press "Browse items.txt" and find items.txt file)`
+      document.getElementById("encode_items_dat").innerHTML = "Browse items.txt"
+    } else {
+      document.getElementById("label1").innerHTML = "Decode items.dat to items.json"
+      document.getElementById("label2").innerHTML = "Encode items.json to items.dat"
+      document.getElementById("label3").innerHTML = `(Press "Browse items.json" and find items.txt file)`
+      document.getElementById("encode_items_dat").innerHTML = "Browse items.json"
+    }
+    $('#using_txt_mode').on('change.bootstrapSwitch', function(e) {
+      if (e.target.checked) {
+        document.getElementById("label1").innerHTML = "Decode items.dat to items.txt"
+        document.getElementById("label2").innerHTML = "Encode items.txt to items.dat"
+        document.getElementById("label3").innerHTML = `(Press "Browse items.txt" and find items.txt file)`
+        document.getElementById("encode_items_dat").innerHTML = "Browse items.txt"
+      }
+      else {
+        document.getElementById("label1").innerHTML = "Decode items.dat to items.json"
+        document.getElementById("label2").innerHTML = "Encode items.json to items.dat"
+        document.getElementById("label3").innerHTML = `(Press "Browse items.json" and find items.txt file)`
+        document.getElementById("encode_items_dat").innerHTML = "Browse items.json"
+      }
+  });
     $('#use_editor').bootstrapToggle('off')
     $('#use_editor').on('change.bootstrapSwitch', function(e) {
       if (e.target.checked) {

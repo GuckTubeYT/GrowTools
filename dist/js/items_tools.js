@@ -88,6 +88,13 @@ function write_buffer_string(pos, len, value, using_key, item_id) {
     }
 }
 
+function hash_buffer(buffer, element, text) {
+    var hash = 0x55555555;
+    var toBuffer = new Uint8Array(buffer);
+    for (let a = 0; a < toBuffer.length; a++) hash = (hash >>> 27) + (hash << 5) + toBuffer[a]
+    document.getElementById(element).innerHTML = text + hash
+}
+
 /**
  * Convert a hex string to an ArrayBuffer.
  * 
@@ -367,7 +374,6 @@ function process_item_encoder(result, using_txt) {
             }
         }
     } else {
-        console.log("go here")
         write_buffer_number(0, 2, result.version)
         write_buffer_number(2, 4, result.item_count)
         for (let a = 0; a < result.item_count; a++) {
@@ -510,6 +516,7 @@ function item_encoder(file, using_editor) {
     if (using_editor) {
         process_item_encoder(data_json, 0);
         saveDataBuffer(encoded_buffer_file, "items.dat")
+        hash_buffer(encoded_buffer_file, "items_dat_hash_2", "Encoded Items dat Hash: ")
         return encoded_buffer_file = []
     } else {
         var reader = new FileReader();
@@ -517,10 +524,11 @@ function item_encoder(file, using_editor) {
 
         reader.onload = function (e) {
             try {
-                console.log(document.getElementById("using_txt_mode").checked)
                 if (document.getElementById("using_txt_mode").checked) process_item_encoder(e.target.result, 1)
                 else process_item_encoder(JSON.parse(e.target.result), 0)
                 saveDataBuffer(encoded_buffer_file, "items.dat")
+
+                hash_buffer(encoded_buffer_file, "items_dat_hash_1", "Encoded Items dat Hash: ")
                 return encoded_buffer_file = []
             } catch (error) {
                 console.error('Error parsing JSON:', error);

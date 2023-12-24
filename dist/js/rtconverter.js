@@ -34,6 +34,13 @@ var saveDataBuffer = (function () {
     };
 }());
 
+function hash_buffer(buffer, element, text) {
+    var hash = 0x55555555;
+    var toBuffer = new Uint8Array(buffer);
+    for (let a = 0; a < toBuffer.length; a++) hash = (hash >>> 27) + (hash << 5) + toBuffer[a]
+    document.getElementById(element).innerHTML = text + hash
+}
+
 /**
  * @param {ArrayBuffer} buffer
  * @param {number} pos
@@ -149,6 +156,10 @@ function rttex_to_png(file) {
                 canvas.height = img.height;
                 context.scale(1, -1);
                 context.drawImage(img, 0, -img.height);
+                var aDownloadLink = document.createElement('a');
+                aDownloadLink.download = file.name.split(".")[0] + ".png";
+                aDownloadLink.href = canvas.toDataURL();
+                aDownloadLink.click();
             }
         }
         else {
@@ -217,9 +228,10 @@ function png_to_rttex(file) {
             write_buffer_number(RTPACKBuffer, 12, 4, 0x7c + pixelBuffer.length)
             RTPACKBuffer[16] = 1
             for (let a = 17; a < 32; a++) RTPACKBuffer[a] = 0;
-            saveDataBuffer(new Uint8Array([...RTPACKBuffer, ...deflateBuffer]))
+            hash_buffer(new Uint8Array([...RTPACKBuffer, ...deflateBuffer]), "rttex_hash_file", "RTTEX Hash File: ")
+            saveDataBuffer(new Uint8Array([...RTPACKBuffer, ...deflateBuffer]), file.name.split(".")[0] + ".rttex")
         };
     }
 
-    reader.readAsDataURL(file, "result.rttex");
+    reader.readAsDataURL(file);
 }

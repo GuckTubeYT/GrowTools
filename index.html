@@ -1,567 +1,909 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Growtopia Tools | Items.dat Tools</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Growtopia Tools | Items.dat Tools</title>
 
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-  <!-- iCheck for checkboxes and radio inputs -->
-  <link rel="stylesheet" href="plugins/bootstrap-toggle/bootstrap-toggle.min.css">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-  <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/adminlte.min.css">
-  <!-- CodeMirror -->
-  <link rel="stylesheet" href="plugins/codemirror/codemirror.css">
-  <link rel="stylesheet" href="plugins/codemirror/theme/monokai.css">
-  <!-- My Custom CSS -->
-  <link rel="stylesheet" href="dist/css/mycss.css">
-</head>
-<body class="hold-transition sidebar-mini layout-fixed layout-footer-fixed sidebar-collapse">
-<div class="wrapper">
-
-  <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-      </li>
-    </ul>
-  </nav>
-  <!-- /.navbar -->
-
-  <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="#" class="brand-link">
-      <img src="dist/img/growtopia.jpg" alt="Growtopia Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Growtopia Tools</span>
-    </a>
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <div class="mb-2"></div>
-
-      <!-- SidebarSearch Form -->
-      <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+    <!-- Google Font: Source Sans Pro -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"
+    />
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css" />
+    <!-- iCheck for checkboxes and radio inputs -->
+    <link rel="stylesheet" href="plugins/bootstrap-toggle/bootstrap-toggle.min.css" />
+    <!-- DataTables -->
+    <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css" />
+    <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css" />
+    <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css" />
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/adminlte.min.css" />
+    <!-- CodeMirror -->
+    <link rel="stylesheet" href="plugins/codemirror/codemirror.css" />
+    <link rel="stylesheet" href="plugins/codemirror/theme/monokai.css" />
+    <!-- My Custom CSS -->
+    <link rel="stylesheet" href="dist/css/mycss.css" />
+  </head>
+  <body
+    class="dark-mode hold-transition sidebar-mini layout-fixed layout-footer-fixed sidebar-collapse"
+  >
+    <div class="wrapper">
+      <!-- Navbar -->
+      <nav class="main-header navbar navbar-expand">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
           <li class="nav-item">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Items.dat Tools
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="rtconverter.html" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                RT File Converter
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="protonhash.html" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Proton Hash
-              </p>
-            </a>
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"
+              ><i class="fas fa-bars text-white"></i
+            ></a>
           </li>
         </ul>
       </nav>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-  </aside>
+      <!-- /.navbar -->
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Items.dat Tools</h1>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
+      <!-- Main Sidebar Container -->
+      <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <a href="#" class="brand-link">
+          <img
+            src="dist/img/growtopia.jpg"
+            alt="Growtopia Logo"
+            class="brand-image img-circle elevation-3"
+            style="opacity: 0.8"
+          />
+          <span class="brand-text font-weight-light">Growtopia Tools</span>
+        </a>
 
-    <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-12">
-            <!-- jquery validation -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Items.dat Tools</h3>
+        <!-- Sidebar -->
+        <div class="sidebar">
+          <div class="mb-2"></div>
+
+          <!-- SidebarSearch Form -->
+          <div class="form-inline">
+            <div class="input-group" data-widget="sidebar-search">
+              <input
+                class="form-control form-control-sidebar"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <div class="input-group-append">
+                <button class="btn btn-sidebar">
+                  <i class="fas fa-search fa-fw"></i>
+                </button>
               </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-12">
-                    <label>Using Editor</label> <a>(Edit items.dat using Browser)</a>
-                    <br>
-                    <input type="checkbox" id="use_editor" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-width="85" data-height="0">
-                    <hr>
+            </div>
+          </div>
+
+          <!-- Sidebar Menu -->
+          <nav class="mt-2">
+            <ul
+              class="nav nav-pills nav-sidebar flex-column"
+              data-widget="treeview"
+              role="menu"
+              data-accordion="false"
+            >
+              <li class="nav-item">
+                <a href="#" class="nav-link active">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p>Items.dat Tools</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="rtconverter.html" class="nav-link">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p>RT File Converter</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="protonhash.html" class="nav-link">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p>Proton Hash</p>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+      </aside>
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+          <div class="container-fluid">
+            <div class="row mb-2">
+              <div class="col-sm-6">
+                <h1 class="m-0">Items.dat Tools</h1>
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <div class="content">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12">
+                <!-- jquery validation -->
+                <div class="card card-primary">
+                  <div class="card-header">
+                    <h3 class="card-title">Items.dat Tools</h3>
                   </div>
-                  <div id="without_editor" class="col-md-12">
-                    <label>using TXT Mode</label>
-                    <br>
-                    <input type="checkbox" id="using_txt_mode" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-width="85" data-height="0">
-                    <br>
-                    <br>
-                    <label id="label1">Decode items.dat to items.txt</label> <a>(Press "Browse items.dat" and find items.dat file)</a>
-                    <br>
-                    <button id="decode_items_dat" class="btn btn-success">Browse items.dat</button>
-                    <br><br>
-                    <label id="label2">Encode items.txt to items.dat</label> <a id="label3">(Press "Browse items.txt" and find items.txt file)</a>
-                    <br>
-                    <button id="encode_items_dat" class="btn btn-success">Browse items.txt</button>
-                    <a id="items_dat_hash_1">Encoded Items dat Hash: -</a>
-                    <br>
-                  </div>
-                  <div id="with_editor" class="d-none col-md-12">
-                    <label>Open items.dat</label> <a>(Press "Browse items.dat" and find items.dat file)</a>
-                    <br>
-                    <button id="decode_items_dat_editor" class="btn btn-success">Browse items.dat</button>
-                    <hr>
-                    <table id="itemsList" class="table table-bordered table-hover display nowrap d-none" style="width:100%">
-                      <thead>
-                      <tr>
-                        <th>Item Name</th>
-                        <th>Action Button</th>
-                      </tr>
-                      </thead>
-                      <tbody>
-                      </tbody>
-                      <tfoot>
-                      <tr>
-                        <th>Item Name</th>
-                        <th>Action Button</th>
-                      </tr>
-                      </tfoot>
-                    </table>
-                    <div class="d-none" id="save_items_dat_div">
-                      <hr>
-                      <button class="btn btn-success" onclick="item_encoder('', true)">Save it to items.dat</button>
-                      <a id="items_dat_hash_2">Encoded Items dat Hash: -</a>
+                  <!-- /.card-header -->
+                  <!-- form start -->
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-12">
+                        <label>Using Editor</label> <a>(Edit items.dat using Browser)</a>
+                        <br />
+                        <input
+                          type="checkbox"
+                          id="use_editor"
+                          data-toggle="toggle"
+                          data-onstyle="success"
+                          data-offstyle="danger"
+                          data-width="85"
+                          data-height="0"
+                        />
+                        <hr />
+                      </div>
+                      <div id="without_editor" class="col-md-12">
+                        <label>using TXT Mode</label>
+                        <br />
+                        <input
+                          type="checkbox"
+                          id="using_txt_mode"
+                          data-toggle="toggle"
+                          data-onstyle="success"
+                          data-offstyle="danger"
+                          data-width="85"
+                          data-height="0"
+                        />
+                        <br />
+                        <br />
+                        <label id="label1">Decode items.dat to items.txt</label>
+                        <a>(Press "Browse items.dat" and find items.dat file)</a>
+                        <br />
+                        <button id="decode_items_dat" class="btn btn-success">
+                          Browse items.dat
+                        </button>
+                        <br /><br />
+                        <label id="label2">Encode items.txt to items.dat</label>
+                        <a id="label3">(Press "Browse items.txt" and find items.txt file)</a>
+                        <br />
+                        <button id="encode_items_dat" class="btn btn-success">
+                          Browse items.txt
+                        </button>
+                        <a id="items_dat_hash_1">Encoded Items dat Hash: -</a>
+                        <br />
+                      </div>
+                      <div id="with_editor" class="d-none col-md-12">
+                        <label>Open items.dat</label>
+                        <a>(Press "Browse items.dat" and find items.dat file)</a>
+                        <br />
+                        <button id="decode_items_dat_editor" class="btn btn-success">
+                          Browse items.dat
+                        </button>
+                        <hr />
+                        <table
+                          id="itemsList"
+                          class="table table-bordered table-hover display nowrap d-none"
+                          style="width: 100%"
+                        >
+                          <thead>
+                            <tr>
+                              <th>Item Name</th>
+                              <th>Action Button</th>
+                            </tr>
+                          </thead>
+                          <tbody></tbody>
+                          <tfoot>
+                            <tr>
+                              <th>Item Name</th>
+                              <th>Action Button</th>
+                            </tr>
+                          </tfoot>
+                        </table>
+                        <div class="d-none" id="save_items_dat_div">
+                          <hr />
+                          <button class="btn btn-success" onclick="item_encoder('', true)">
+                            Save it to items.dat
+                          </button>
+                          <a id="items_dat_hash_2">Encoded Items dat Hash: -</a>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
+                <!-- /.card -->
               </div>
             </div>
-            <!-- /.card -->
+            <!-- /.row -->
           </div>
+          <!-- /.container-fluid -->
         </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <div class="modal fade" id="modal-editItems" style="display: none;" aria-hidden="true">
-      <div class="modal-dialog modal-xl modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Edit Items</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
+        <div class="modal fade" id="modal-editItems" style="display: none" aria-hidden="true">
+          <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Edit Items</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <!-- Content here -->
+                <div class="form-group">
+                  <label for="item_id">Item ID (int)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="item_id"
+                      placeholder="Item ID"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="editable_type">Editable Type (char)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="editable_type"
+                      placeholder="Editable Type"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="item_category">Item Category (char)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="item_category"
+                      placeholder="Item Category"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="action_type">Action Type (char)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="action_type"
+                      placeholder="Action Type"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="hit_sound_type">Hit Sound Type (char)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="hit_sound_type"
+                      placeholder="Hit Sound Type"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="name">Name (string)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="name"
+                      placeholder="Name"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="texture">Texture (string)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="texture"
+                      placeholder="Texture"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="texture_hash">Texture Hash (int)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="texture_hash"
+                      placeholder="Texture Hash"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="item_kind">Item Kind (char)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="item_kind"
+                      placeholder="Item Kind"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="val1">Val1 (int)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="val1"
+                      placeholder="Val1"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="texture_x">Texture X (char)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="texture_x"
+                      placeholder="Texture X"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="texture_y">Texture Y (char)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="texture_y"
+                      placeholder="Texture Y"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="spread_type">Spread Types (char)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="spread_type"
+                      placeholder="Spread Type"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="is_stripey_wallpaper">Is Stripey Wallpaper (char)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="is_stripey_wallpaper"
+                      placeholder="Is Stripey Wallpaper"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="collision_type">Collision Type (char)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="collision_type"
+                      placeholder="Collision Type"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="break_hits">Break Hits (char)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="break_hits"
+                      placeholder="Break Hits"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="drop_chance">Drop Chance (int)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="drop_chance"
+                      placeholder="Drop Chance"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="clothing_type">Clothing Type (char)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="clothing_type"
+                      placeholder="Clothing Type"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="rarity">Rarity (short)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="rarity"
+                      placeholder="Rarity"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="max_amount">Max Amount (char)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="max_amount"
+                      placeholder="Max Amount"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="extra_file">Extra File (string)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="extra_file"
+                      placeholder="Extra File"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="extra_file_hash">Extra File Hash (int)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="extra_file_hash"
+                      placeholder="Extra File Hash"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="audio_volume">Audio Volume (int)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="audio_volume"
+                      placeholder="Audio Volume"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="pet_name">Pet Name (string)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="pet_name"
+                      placeholder="Pet Name"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="pet_prefix">Pet Prefix (string)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="pet_prefix"
+                      placeholder="Pet Prefix"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="pet_suffix">Pet Suffix (string)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="pet_suffix"
+                      placeholder="Pet Suffix"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="pet_ability">Pet Ability (string)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="pet_ability"
+                      placeholder="Pet Ability"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="seed_base">Seed Base (char)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="seed_base"
+                      placeholder="Seed Base"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="seed_overlay">Seed Overlay (char)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="seed_overlay"
+                      placeholder="Seed Overlay"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="tree_base">Tree Base (char)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="tree_base"
+                      placeholder="Tree Base"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="tree_leaves">Tree Leaves (char)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="tree_leaves"
+                      placeholder="Tree Leaves"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="seed_color">Seed Color (RGBA)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="seed_color"
+                      placeholder="Seed Color"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="seed_overlay_color">Seed Overlay Color (RGBA)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="seed_overlay_color"
+                      placeholder="Seed Overlay Color"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="grow_time">Grow Time (int)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="grow_time"
+                      placeholder="Grow Time"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="val2">Val2 (short)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="val2"
+                      placeholder="Val2"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="is_rayman">Is Rayman (short)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="is_rayman"
+                      placeholder="Is Rayman"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="extra_options">Extra Options (string)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="extra_options"
+                      placeholder="Extra Options"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="texture2">Texture 2 (string)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="texture2"
+                      placeholder="Texture 2"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="extra_options2">Extra Options 2 (string)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="extra_options2"
+                      placeholder="Extra Options 2"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="pos_80_data">Unknown Data 80 bytes (hexadecimal)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="pos_80_data"
+                      placeholder="Unknown Data 80 bytes"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="punch_options">Punch Options (string)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="punch_options"
+                      placeholder="Punch Options"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="data_version_12">Data Version 12 (hexadecimal)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="data_version_12"
+                      placeholder="Data Version 12"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="int_version_13">Data Version 13 (int)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="int_version_13"
+                      placeholder="Data Version 13"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="int_version_14">Data Version 14 (int)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="int_version_14"
+                      placeholder="Data Version 14"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="data_version_15">Data Version 15 (hexadecimal)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="data_version_15"
+                      placeholder="Data Version 15"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="int_version_14">Data Version 15 (string)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="str_version_15"
+                      placeholder="Data Version 15"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="data_version_15">Data Version 16 (int)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="int_version_16"
+                      placeholder="Data Version 15"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                  Close (Esc)
+                </button>
+                <button type="button" class="btn btn-success" id="editItemsButton">Edit</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
           </div>
-          <div class="modal-body">
-            <!-- Content here -->
-            <div class="form-group">
-              <label for="item_id">Item ID (int)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="item_id" placeholder="Item ID" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="editable_type">Editable Type (char)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="editable_type" placeholder="Editable Type" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="item_category">Item Category (char)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="item_category" placeholder="Item Category" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="action_type">Action Type (char)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="action_type" placeholder="Action Type" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="hit_sound_type">Hit Sound Type (char)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="hit_sound_type" placeholder="Hit Sound Type" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="name">Name (string)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="name" placeholder="Name" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="texture">Texture (string)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="texture" placeholder="Texture" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="texture_hash">Texture Hash (int)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="texture_hash" placeholder="Texture Hash" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="item_kind">Item Kind (char)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="item_kind" placeholder="Item Kind" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="val1">Val1 (int)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="val1" placeholder="Val1" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="texture_x">Texture X (char)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="texture_x" placeholder="Texture X" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="texture_y">Texture Y (char)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="texture_y" placeholder="Texture Y" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="spread_type">Spread Types (char)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="spread_type" placeholder="Spread Type" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="is_stripey_wallpaper">Is Stripey Wallpaper (char)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="is_stripey_wallpaper" placeholder="Is Stripey Wallpaper" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="collision_type">Collision Type (char)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="collision_type" placeholder="Collision Type" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="break_hits">Break Hits (char)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="break_hits" placeholder="Break Hits" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="drop_chance">Drop Chance (int)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="drop_chance" placeholder="Drop Chance" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="clothing_type">Clothing Type (char)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="clothing_type" placeholder="Clothing Type" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="rarity">Rarity (short)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="rarity" placeholder="Rarity" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="max_amount">Max Amount (char)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="max_amount" placeholder="Max Amount" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="extra_file">Extra File (string)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="extra_file" placeholder="Extra File" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="extra_file_hash">Extra File Hash (int)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="extra_file_hash" placeholder="Extra File Hash" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="audio_volume">Audio Volume (int)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="audio_volume" placeholder="Audio Volume" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="pet_name">Pet Name (string)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="pet_name" placeholder="Pet Name" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="pet_prefix">Pet Prefix (string)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="pet_prefix" placeholder="Pet Prefix" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="pet_suffix">Pet Suffix (string)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="pet_suffix" placeholder="Pet Suffix" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="pet_ability">Pet Ability (string)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="pet_ability" placeholder="Pet Ability" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="seed_base">Seed Base (char)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="seed_base" placeholder="Seed Base" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="seed_overlay">Seed Overlay (char)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="seed_overlay" placeholder="Seed Overlay" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="tree_base">Tree Base (char)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="tree_base" placeholder="Tree Base" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="tree_leaves">Tree Leaves (char)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="tree_leaves" placeholder="Tree Leaves" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="seed_color">Seed Color (RGBA)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="seed_color" placeholder="Seed Color" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="seed_overlay_color">Seed Overlay Color (RGBA)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="seed_overlay_color" placeholder="Seed Overlay Color" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="grow_time">Grow Time (int)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="grow_time" placeholder="Grow Time" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="val2">Val2 (short)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="val2" placeholder="Val2" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="is_rayman">Is Rayman (short)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="is_rayman" placeholder="Is Rayman" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="extra_options">Extra Options (string)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="extra_options" placeholder="Extra Options" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="texture2">Texture 2 (string)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="texture2" placeholder="Texture 2" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="extra_options2">Extra Options 2 (string)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="extra_options2" placeholder="Extra Options 2" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="pos_80_data">Unknown Data 80 bytes (hexadecimal)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="pos_80_data" placeholder="Unknown Data 80 bytes" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="punch_options">Punch Options (string)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="punch_options" placeholder="Punch Options" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="data_version_12">Data Version 12 (hexadecimal)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="data_version_12" placeholder="Data Version 12" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="int_version_13">Data Version 13 (int)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="int_version_13" placeholder="Data Version 13" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="int_version_14">Data Version 14 (int)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="int_version_14" placeholder="Data Version 14" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="data_version_15">Data Version 15 (hexadecimal)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="data_version_15" placeholder="Data Version 15" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="int_version_14">Data Version 15 (string)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="str_version_15" placeholder="Data Version 15" autocomplete="off">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="data_version_15">Data Version 16 (int)</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="int_version_16" placeholder="Data Version 15" autocomplete="off">
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer justify-content-between">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close (Esc)</button>
-            <button type="button" class="btn btn-success" id="editItemsButton">Edit</button>
-          </div>
+          <!-- /.modal-dialog -->
         </div>
-        <!-- /.modal-content -->
+        <!-- /.content -->
       </div>
-      <!-- /.modal-dialog -->
+      <!-- /.content-wrapper -->
+
+      <!-- Main Footer -->
+      <footer class="main-footer">
+        <!-- To the right -->
+        <div class="float-right d-none d-sm-inline">
+          <b>Growtopia Tools</b>,
+          <strong><a href="https://github.com/GuckTubeYT/GrowTools">GuckTube YT</a></strong
+          >.
+        </div>
+        <!-- Default to the left -->
+        <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+        All rights reserved.
+      </footer>
     </div>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+    <!-- ./wrapper -->
 
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <!-- To the right -->
-    <div class="float-right d-none d-sm-inline">
-      <b>Growtopia Tools</b>, <strong><a href="https://github.com/GuckTubeYT/GrowTools">GuckTube YT</a></strong>.
-    </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
-</div>
-<!-- ./wrapper -->
+    <!-- REQUIRED SCRIPTS -->
 
-<!-- REQUIRED SCRIPTS -->
-
-<!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="dist/js/adminlte.min.js"></script>
-<!-- DataTables  & Plugins -->
-<script src="plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-<!-- Toggle -->
-<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
-<script src="plugins/bootstrap-toggle/bootstrap-toggle.min.js"></script>
-<!-- My Script -->
-<script src="dist/js/items_tools.js"></script>
-<script>
-  $(function () {
-    if (document.getElementById("using_txt_mode").checked) {
-      document.getElementById("label1").innerHTML = "Decode items.dat to items.txt"
-      document.getElementById("label2").innerHTML = "Encode items.txt to items.dat"
-      document.getElementById("label3").innerHTML = `(Press "Browse items.txt" and find items.txt file)`
-      document.getElementById("encode_items_dat").innerHTML = "Browse items.txt"
-    } else {
-      document.getElementById("label1").innerHTML = "Decode items.dat to items.json"
-      document.getElementById("label2").innerHTML = "Encode items.json to items.dat"
-      document.getElementById("label3").innerHTML = `(Press "Browse items.json" and find items.txt file)`
-      document.getElementById("encode_items_dat").innerHTML = "Browse items.json"
-    }
-    $('#using_txt_mode').on('change.bootstrapSwitch', function(e) {
-      if (e.target.checked) {
-        document.getElementById("label1").innerHTML = "Decode items.dat to items.txt"
-        document.getElementById("label2").innerHTML = "Encode items.txt to items.dat"
-        document.getElementById("label3").innerHTML = `(Press "Browse items.txt" and find items.txt file)`
-        document.getElementById("encode_items_dat").innerHTML = "Browse items.txt"
-      }
-      else {
-        document.getElementById("label1").innerHTML = "Decode items.dat to items.json"
-        document.getElementById("label2").innerHTML = "Encode items.json to items.dat"
-        document.getElementById("label3").innerHTML = `(Press "Browse items.json" and find items.txt file)`
-        document.getElementById("encode_items_dat").innerHTML = "Browse items.json"
-      }
-  });
-    $('#use_editor').bootstrapToggle('off')
-    $('#use_editor').on('change.bootstrapSwitch', function(e) {
-      if (e.target.checked) {
-        document.getElementById("without_editor").classList.add("d-none")
-        document.getElementById("with_editor").classList.remove("d-none")
-      }
-      else {
-        document.getElementById("without_editor").classList.remove("d-none")
-        document.getElementById("with_editor").classList.add("d-none")
-      }
-  });
-});
-</script>
-</body>
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.min.js"></script>
+    <!-- DataTables  & Plugins -->
+    <script src="plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <!-- Toggle -->
+    <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="plugins/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+    <!-- My Script -->
+    <script src="dist/js/items_tools.js"></script>
+    <script>
+      $(function () {
+        if (document.getElementById("using_txt_mode").checked) {
+          document.getElementById("label1").innerHTML = "Decode items.dat to items.txt";
+          document.getElementById("label2").innerHTML = "Encode items.txt to items.dat";
+          document.getElementById(
+            "label3"
+          ).innerHTML = `(Press "Browse items.txt" and find items.txt file)`;
+          document.getElementById("encode_items_dat").innerHTML = "Browse items.txt";
+        } else {
+          document.getElementById("label1").innerHTML = "Decode items.dat to items.json";
+          document.getElementById("label2").innerHTML = "Encode items.json to items.dat";
+          document.getElementById(
+            "label3"
+          ).innerHTML = `(Press "Browse items.json" and find items.txt file)`;
+          document.getElementById("encode_items_dat").innerHTML = "Browse items.json";
+        }
+        $("#using_txt_mode").on("change.bootstrapSwitch", function (e) {
+          if (e.target.checked) {
+            document.getElementById("label1").innerHTML = "Decode items.dat to items.txt";
+            document.getElementById("label2").innerHTML = "Encode items.txt to items.dat";
+            document.getElementById(
+              "label3"
+            ).innerHTML = `(Press "Browse items.txt" and find items.txt file)`;
+            document.getElementById("encode_items_dat").innerHTML = "Browse items.txt";
+          } else {
+            document.getElementById("label1").innerHTML = "Decode items.dat to items.json";
+            document.getElementById("label2").innerHTML = "Encode items.json to items.dat";
+            document.getElementById(
+              "label3"
+            ).innerHTML = `(Press "Browse items.json" and find items.txt file)`;
+            document.getElementById("encode_items_dat").innerHTML = "Browse items.json";
+          }
+        });
+        $("#use_editor").bootstrapToggle("off");
+        $("#use_editor").on("change.bootstrapSwitch", function (e) {
+          if (e.target.checked) {
+            document.getElementById("without_editor").classList.add("d-none");
+            document.getElementById("with_editor").classList.remove("d-none");
+          } else {
+            document.getElementById("without_editor").classList.remove("d-none");
+            document.getElementById("with_editor").classList.add("d-none");
+          }
+        });
+      });
+    </script>
+  </body>
 </html>

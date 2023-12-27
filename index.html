@@ -153,7 +153,7 @@
                           data-width="85"
                           data-height="0"
                         />
-                        <hr />
+                        <hr style="display: block;height: 1px;border: 0;border-top: 1px solid #ccc;margin: 1em 0;padding: 0;" />
                       </div>
                       <div id="without_editor" class="col-md-12">
                         <label>using TXT Mode</label>
@@ -192,7 +192,7 @@
                         <button id="decode_items_dat_editor" class="btn btn-success">
                           Browse items.dat
                         </button>
-                        <hr />
+                        <hr style="display: block;height: 1px;border: 0;border-top: 1px solid #ccc;margin: 1em 0;padding: 0;" />
                         <table
                           id="itemsList"
                           class="table table-bordered table-hover display nowrap d-none"
@@ -200,6 +200,7 @@
                         >
                           <thead>
                             <tr>
+                              <th>Item ID</th>
                               <th>Item Name</th>
                               <th>Action Button</th>
                             </tr>
@@ -207,13 +208,14 @@
                           <tbody></tbody>
                           <tfoot>
                             <tr>
+                              <th>Item ID</th>
                               <th>Item Name</th>
                               <th>Action Button</th>
                             </tr>
                           </tfoot>
                         </table>
                         <div class="d-none" id="save_items_dat_div">
-                          <hr />
+                          <hr style="display: block;height: 1px;border: 0;border-top: 1px solid #ccc;margin: 1em 0;padding: 0;" />
                           <button class="btn btn-success" onclick="item_encoder('', true)">
                             Save it to items.dat
                           </button>

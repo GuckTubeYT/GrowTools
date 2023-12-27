@@ -791,7 +791,7 @@ function item_decoder(file, using_editor) {
                   scrollY:        "500px",
                   scrollX:        true,
                   scrollCollapse: true,
-                  paging:         false,
+                  paging:         true,
                   fixedColumns: {
                       left: 1,
                       right: 1
@@ -814,8 +814,9 @@ function item_decoder(file, using_editor) {
             var result = []
             for (let a = 0; a < item_count; a++) {
                 result[a] = []
-                result[a][0] = data_json.items[a].name
-                result[a][1] = `<center><button class="btn btn-primary" onclick="editItems(${a})">Edit/Info</button></center>`
+                result[a][0] = data_json.items[a].item_id
+                result[a][1] = data_json.items[a].name
+                result[a][2] = `<center><button class="btn btn-primary" onclick="editItems(${a})">Edit/Info</button></center>`
             }
             $("#itemsList").DataTable().rows.add(result).draw()
             result = []

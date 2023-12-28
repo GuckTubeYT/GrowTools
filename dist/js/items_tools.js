@@ -553,7 +553,7 @@ function item_decoder(file, using_editor) {
         var version = read_buffer_number(arrayBuffer, 0, 2);
         var item_count = read_buffer_number(arrayBuffer, 2, 4);
 
-        if (version <= 16) {
+        if (version > 16) {
             return Swal.mixin({
                 toast: true,
                 position: 'top-end',

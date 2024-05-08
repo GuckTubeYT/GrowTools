@@ -506,6 +506,10 @@ function process_item_encoder(result, using_txt) {
                 write_buffer_number(mem_pos, 4, result.items[a].int_version_17)
                 mem_pos += 4;
             }
+            if (result.version >= 18) {
+                write_buffer_number(mem_pos, 4, result.items[a].int_version_18)
+                mem_pos += 4;
+            }
         }
     }
     
@@ -732,6 +736,11 @@ function item_decoder(file, using_editor) {
             
             if (version >= 17) {
                 var int_version_17 = read_buffer_number(arrayBuffer, mem_pos, 4)
+                mem_pos += 4;
+            }
+
+            if (version >= 18) {
+                var int_version_18 = read_buffer_number(arrayBuffer, mem_pos, 4)
                 mem_pos += 4;
             }
 

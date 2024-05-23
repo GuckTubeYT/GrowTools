@@ -371,6 +371,14 @@ function process_item_encoder(result, using_txt) {
                     write_buffer_string(mem_pos, result1[47].length, result1[47])
                     mem_pos += result1[47].length
                 }
+                if (version >= 17) {
+                    write_buffer_number(mem_pos, 4, result1[48])
+                    mem_pos += 4;
+                }
+                if (version >= 18) {
+                    write_buffer_number(mem_pos, 4, result1[49])
+                    mem_pos += 4;
+                }
             }
         }
     } else {
@@ -402,7 +410,7 @@ function process_item_encoder(result, using_txt) {
             encoded_buffer_file[mem_pos++] = result.items[a].is_stripey_wallpaper
             encoded_buffer_file[mem_pos++] = result.items[a].collision_type
 
-            if (isNaN(result.items[a].break_hits) && result.items[a].break_hits.includes("r")) encoded_buffer_file[mem_pos++] = Number(result.items[a].break_hits.slice(0, -1))
+            if (result.items[a].break_hits.includes("r")) encoded_buffer_file[mem_pos++] = Number(result.items[a].break_hits.slice(0, -1))
             else encoded_buffer_file[mem_pos++] = Number(result.items[a].break_hits) * 6
 
             write_buffer_number(mem_pos, 4, result.items[a].drop_chance)
@@ -512,7 +520,6 @@ function process_item_encoder(result, using_txt) {
             }
         }
     }
-    
 }
 
 /**

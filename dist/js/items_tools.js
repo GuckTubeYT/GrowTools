@@ -175,6 +175,10 @@ document.getElementById('encode_items_dat').addEventListener('click', function (
     input.click();
 });
 
+function check_last_char(dest, src) {
+    return dest[dest.length - 1] == src
+}
+
 function process_item_encoder(result, using_txt) {
     var mem_pos = 6;
 
@@ -410,7 +414,7 @@ function process_item_encoder(result, using_txt) {
             encoded_buffer_file[mem_pos++] = result.items[a].is_stripey_wallpaper
             encoded_buffer_file[mem_pos++] = result.items[a].collision_type
 
-            if (result.items[a].break_hits.includes("r")) encoded_buffer_file[mem_pos++] = Number(result.items[a].break_hits.slice(0, -1))
+            if (check_last_char(result.items[a].break_hits.toString(), "r")) encoded_buffer_file[mem_pos++] = Number(result.items[a].break_hits.toString().slice(0, -1))
             else encoded_buffer_file[mem_pos++] = Number(result.items[a].break_hits) * 6
 
             write_buffer_number(mem_pos, 4, result.items[a].drop_chance)
@@ -802,7 +806,6 @@ function item_decoder(file, using_editor) {
                 data_json.items[a].seed_overlay_color.g = seed_overlay_color_g
                 data_json.items[a].seed_overlay_color.b = seed_overlay_color_b
             }
-            
             
             data_json.items[a].grow_time = grow_time
             data_json.items[a].val2 = val2

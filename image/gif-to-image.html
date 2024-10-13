@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Growtopia Tools | Proton Hash</title>
+    <title>Growtopia Tools | GIF to Image</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link
@@ -11,36 +11,22 @@
       href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"
     />
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css" />
+    <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css" />
     <!-- iCheck for checkboxes and radio inputs -->
     <link
       rel="stylesheet"
-      href="plugins/bootstrap-toggle/bootstrap-toggle.min.css"
-    />
-    <!-- DataTables -->
-    <link
-      rel="stylesheet"
-      href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css"
+      href="../plugins/bootstrap-toggle/bootstrap-toggle.min.css"
     />
     <!-- Theme style -->
-    <link rel="stylesheet" href="dist/css/adminlte.min.css" />
-    <!-- CodeMirror -->
-    <link rel="stylesheet" href="plugins/codemirror/codemirror.css" />
-    <link rel="stylesheet" href="plugins/codemirror/theme/monokai.css" />
+    <link rel="stylesheet" href="../dist/css/adminlte.min.css" />
+    <!-- iCheck Bootstrap -->
+    <link rel="stylesheet" href="../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- My Custom CSS -->
-    <link rel="stylesheet" href="dist/css/mycss.css" />
+    <link rel="stylesheet" href="../dist/css/mycss.css" />
     <!-- SweetAlert2 -->
     <link
       rel="stylesheet"
-      href="plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css"
+      href="../plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css"
     />
   </head>
   <body
@@ -65,7 +51,7 @@
         <!-- Brand Logo -->
         <a href="#" class="brand-link">
           <img
-            src="dist/img/growtopia.jpg"
+            src="../dist/img/growtopia.jpg"
             alt="Growtopia Logo"
             class="brand-image img-circle elevation-3"
             style="opacity: 0.8"
@@ -102,65 +88,64 @@
               role="menu"
               data-accordion="false"
             >
-              <li class="nav-item menu-is-opening menu-open">
-                <a href="#" class="nav-link active">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-solid fa-wrench"></i>
                   <p>
                     Growtopia Tools
                     <i class="right fas fa-angle-left"></i>
                   </p>
                 </a>
-                <ul class="nav nav-treeview" style="display: block; height: 129.6px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
+                <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="index.html" class="nav-link">
+                    <a href="../index.html" class="nav-link">
                       <i class="nav-icon fas fa-th"></i>
                       <p>Items.dat Tools</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="rtconverter.html" class="nav-link">
+                    <a href="../rtconverter.html" class="nav-link">
                       <i class="nav-icon fas fa-th"></i>
                       <p>RT File Converter</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link active">
+                    <a href="../protonhash.html" class="nav-link">
                       <i class="nav-icon fas fa-th"></i>
                       <p>Proton Hash</p>
                     </a>
                   </li>
                 </ul>
               </li>
-              <li class="nav-item" >
-                <a href="#" class="nav-link">
+              <li class="nav-item menu-is-opening menu-open" >
+                <a href="#" class="nav-link active">
                   <i class="nav-icon fas fa-solid fa-wrench"></i>
                   <p>
                     Image Tools
-                    <i class="right fas fa-angle-left"></i>
-                    <span class="right badge badge-danger">New</span>
+                    <i class="right fas fa-angle-left"></i><span class="badge badge-danger right">New</span>
                   </p>
                 </a>
-                <ul class="nav nav-treeview">
+                <ul class="nav nav-treeview" style="display: block; height: 129.6px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
                   <li class="nav-item">
-                    <a href="image/index.html" class="nav-link">
+                    <a href="index.html" class="nav-link">
                       <i class="nav-icon fas fa-th"></i>
                       <p>Tile Image <span class="right badge badge-danger">New</span></p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="image/resize.html" class="nav-link">
+                    <a href="resize.html" class="nav-link">
                       <i class="nav-icon fas fa-th"></i>
                       <p>Resize Image <span class="right badge badge-danger">New</span></p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="image/tile-to-gif.html" class="nav-link">
+                    <a href="tile-to-gif.html" class="nav-link">
                       <i class="nav-icon fas fa-th"></i>
                       <p>Tile to GIF <span class="right badge badge-danger">New</span></p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="image/gif-to-image.html" class="nav-link">
+                    <a href="#" class="nav-link active">
                       <i class="nav-icon fas fa-th"></i>
                       <p>GIF to Image <span class="right badge badge-danger">New</span></p>
                     </a>
@@ -181,7 +166,7 @@
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                <h1 class="m-0">Proton Hash</h1>
+                <h1 class="m-0">GIF to Image</h1>
               </div>
               <!-- /.col -->
             </div>
@@ -198,37 +183,66 @@
               <div class="col-md-12">
                 <div class="card card-primary">
                   <div class="card-header">
-                    <h3 class="card-title">Proton Hash</h3>
+                    <h3 class="card-title">GIF to Image</h3>
                   </div>
                   <!-- /.card-header -->
                   <!-- form start -->
                   <div class="card-body">
                     <div class="row">
-                      <div class="col-md-12">
-                        <label id="label1"
-                          >File you want to Generate Hash</label
-                        >
-                        <a
-                          >(Press "Browse File" and find file you want to
-                          hash)</a
-                        >
-                        <br />
-                        <button id="hash_file" class="btn btn-success">
-                          Browse File
-                        </button>
+                     <div class="col-md-12">
+                      <div>
+                        <label>Load GIF Image File</label>
+                        <br>
+                        <button id="browse_gif_file" class="btn btn-success"> Browse GIF  File </button>
                         <a id="file_name">File Name: -</a>
-                        <hr
-                          style="
+                        <div id="gif_opt_div" style="display: none;">
+                          <hr style="
                             display: block;
                             height: 1px;
                             border: 0;
                             border-top: 1px solid #ccc;
                             margin: 1em 0;
                             padding: 0;
-                          "
-                        />
-                        <h3 id="result_hash">Result Hash: -</h3>
+                          " />
+                          <label>Using Original Size Image</label>
+                          <a>(The result image will be saved with an original GIF size.)</a>
+                          <br />
+                          <input type="checkbox" id="using_ori_size_image" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-width="85" data-height="0"/>
+                          <div id="custom_image_size_output_div" style="display: none;">
+                            <div class="form-group row">
+                              <label for="custom_out_img_width" class="col-sm-2 col-form-label">Custom Image Size Width:</label>
+                              <div class="col-sm-2">
+                                <input type="number" id="custom_out_img_width" class="form-control" value="32">
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <label for="custom_out_img_height" class="col-sm-2 col-form-label">Custom Image Size Height:</label>
+                              <div class="col-sm-2">
+                                <input type="number" id="custom_out_img_height" class="form-control" value="32">
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <label for="img_filter" class="col-sm-2 col-form-label">Image Filtering:</label>
+                              <div class="col-sm-2">
+                                <select class="custom-select rounded-0" id="img_filter">
+                                  <option sleected>Nearest</option>
+                                  <option>Smooth</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <hr style="
+                            display: block;
+                            height: 1px;
+                            border: 0;
+                            border-top: 1px solid #ccc;
+                            margin: 1em 0;
+                            padding: 0;
+                          " />
+                          <button class="btn btn-success" onclick="extract_to_single_image()" id="extract_to_single_image_btn">Extract it to Single Image! (ZIP)</button>
+                        </div>
                       </div>
+                     </div>
                     </div>
                   </div>
                 </div>
@@ -264,28 +278,22 @@
 
     <!-- REQUIRED SCRIPTS -->
 
+    <!-- libgif -->
+    <script src="../plugins/libgif/libgif.js"></script>
     <!-- jQuery -->
-    <script src="plugins/jquery/jquery.min.js"></script>
+    <script src="../plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
-    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="dist/js/adminlte.min.js"></script>
-    <!-- DataTables  & Plugins -->
-    <script src="plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-    <script src="plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-    <script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-    <script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
-    <script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <script src="../dist/js/adminlte.min.js"></script>
+    <!-- JSZip -->
+    <script src="../plugins/jszip/jszip.min.js"></script>
     <!-- SweetAlert2 -->
-    <script src="plugins/sweetalert2/sweetalert2.min.js"></script>
+    <script src="../plugins/sweetalert2/sweetalert2.min.js"></script>
     <!-- Toggle -->
-    <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
-    <script src="plugins/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+    <script src="../plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../plugins/bootstrap-toggle/bootstrap-toggle.min.js"></script>
     <!-- My Script -->
-    <script src="dist/js/protonhash.js"></script>
+    <script src="../dist/js/gif-to-image.js"></script>
   </body>
 </html>

@@ -8,10 +8,8 @@ for (let n = 0; n <= 0xff; ++n) {
     const hexOctet = n.toString(16).padStart(2, "0");
     byteToHex.push(hexOctet);
 }
-
+const a = document.createElement("a");
 var saveData = (function () {
-    var a = document.createElement("a");
-    document.body.appendChild(a);
     a.style = "display: none";
     /**
      * @param {ArrayBuffer} data
@@ -28,8 +26,6 @@ var saveData = (function () {
 }());
 
 var saveDataBuffer = (function () {
-    var a = document.createElement("a");
-    document.body.appendChild(a);
     a.style = "display: none";
     /**
      * @param {ArrayBuffer} data

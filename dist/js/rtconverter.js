@@ -5,9 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById("rtfont").classList.remove("active");
 });
 
+const a = document.createElement("a");
+
 var saveData = (function () {
-    var a = document.createElement("a");
-    document.body.appendChild(a);
     a.style = "display: none";
     /**
      * @param {ArrayBuffer} data
@@ -24,8 +24,6 @@ var saveData = (function () {
 }());
 
 var saveDataBuffer = (function () {
-    var a = document.createElement("a");
-    document.body.appendChild(a);
     a.style = "display: none";
     /**
      * @param {ArrayBuffer} data

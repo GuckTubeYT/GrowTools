@@ -13,18 +13,33 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css" />
     <!-- iCheck for checkboxes and radio inputs -->
-    <link rel="stylesheet" href="plugins/bootstrap-toggle/bootstrap-toggle.min.css" />
+    <link
+      rel="stylesheet"
+      href="plugins/bootstrap-toggle/bootstrap-toggle.min.css"
+    />
     <!-- DataTables -->
-    <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css" />
-    <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css" />
-    <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css" />
+    <link
+      rel="stylesheet"
+      href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css"
+    />
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/adminlte.min.css" />
     <!-- CodeMirror -->
     <link rel="stylesheet" href="plugins/codemirror/codemirror.css" />
     <link rel="stylesheet" href="plugins/codemirror/theme/monokai.css" />
     <!-- SweetAlert2 -->
-    <link rel="stylesheet" href="plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" />
+    <link
+      rel="stylesheet"
+      href="plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css"
+    />
     <!-- My Custom CSS -->
     <link rel="stylesheet" href="dist/css/mycss.css" />
   </head>
@@ -49,7 +64,12 @@
       <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="#" class="brand-link">
-          <img src="dist/img/growtopia.jpg" alt="Growtopia Logo" class="brand-image img-circle elevation-3" style="opacity: 0.8"/>
+          <img
+            src="dist/img/growtopia.jpg"
+            alt="Growtopia Logo"
+            class="brand-image img-circle elevation-3"
+            style="opacity: 0.8"
+          />
           <span class="brand-text font-weight-light">Growtopia Tools</span>
         </a>
 
@@ -76,7 +96,12 @@
 
           <!-- Sidebar Menu -->
           <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <ul
+              class="nav nav-pills nav-sidebar flex-column"
+              data-widget="treeview"
+              role="menu"
+              data-accordion="false"
+            >
               <li class="nav-item menu-is-opening menu-open">
                 <a href="#" class="nav-link active">
                   <i class="nav-icon fas fa-solid fa-wrench"></i>
@@ -102,6 +127,42 @@
                     <a href="protonhash.html" class="nav-link">
                       <i class="nav-icon fas fa-th"></i>
                       <p>Proton Hash</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item" >
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-solid fa-wrench"></i>
+                  <p>
+                    Image Tools
+                    <i class="right fas fa-angle-left"></i>
+                    <span class="right badge badge-danger">New</span>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="image/index.html" class="nav-link">
+                      <i class="nav-icon fas fa-th"></i>
+                      <p>Tile Image <span class="right badge badge-danger">New</span></p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="image/resize.html" class="nav-link">
+                      <i class="nav-icon fas fa-th"></i>
+                      <p>Resize Image <span class="right badge badge-danger">New</span></p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="image/tile-to-gif.html" class="nav-link">
+                      <i class="nav-icon fas fa-th"></i>
+                      <p>Tile to GIF <span class="right badge badge-danger">New</span></p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="image/gif-to-image.html" class="nav-link">
+                      <i class="nav-icon fas fa-th"></i>
+                      <p>GIF to Image <span class="right badge badge-danger">New</span></p>
                     </a>
                   </li>
                 </ul>
@@ -145,7 +206,8 @@
                   <div class="card-body">
                     <div class="row">
                       <div class="col-12">
-                        <label>Using Editor</label> <a>(Edit items.dat using Browser)</a>
+                        <label>Using Editor</label>
+                        <a>(Edit items.dat using Browser)</a>
                         <br />
                         <input
                           type="checkbox"
@@ -182,14 +244,18 @@
                         <br />
                         <br />
                         <label id="label1">Decode items.dat to items.txt</label>
-                        <a>(Press "Browse items.dat" and find items.dat file)</a>
+                        <a
+                          >(Press "Browse items.dat" and find items.dat file)</a
+                        >
                         <br />
                         <button id="decode_items_dat" class="btn btn-success">
                           Browse items.dat
                         </button>
                         <br /><br />
                         <label id="label2">Encode items.txt to items.dat</label>
-                        <a id="label3">(Press "Browse items.txt" and find items.txt file)</a>
+                        <a id="label3"
+                          >(Press "Browse items.txt" and find items.txt file)</a
+                        >
                         <br />
                         <button id="encode_items_dat" class="btn btn-success">
                           Browse items.txt
@@ -199,9 +265,14 @@
                       </div>
                       <div id="with_editor" class="d-none col-md-12">
                         <label>Open items.dat</label>
-                        <a>(Press "Browse items.dat" and find items.dat file)</a>
+                        <a
+                          >(Press "Browse items.dat" and find items.dat file)</a
+                        >
                         <br />
-                        <button id="decode_items_dat_editor" class="btn btn-success">
+                        <button
+                          id="decode_items_dat_editor"
+                          class="btn btn-success"
+                        >
                           Browse items.dat
                         </button>
                         <hr
@@ -246,7 +317,10 @@
                               padding: 0;
                             "
                           />
-                          <button class="btn btn-success" onclick="item_encoder('', true)">
+                          <button
+                            class="btn btn-success"
+                            onclick="item_encoder('', true)"
+                          >
                             Save it to items.dat
                           </button>
                           <a id="items_dat_hash_2">Encoded Items dat Hash: -</a>
@@ -267,7 +341,12 @@
             <div class="modal-content">
               <div class="modal-header">
                 <h4 class="modal-title">Edit Items</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
                   <span aria-hidden="true">×</span>
                 </button>
               </div>
@@ -430,7 +509,9 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="is_stripey_wallpaper">Is Stripey Wallpaper (char)</label>
+                  <label for="is_stripey_wallpaper"
+                    >Is Stripey Wallpaper (char)</label
+                  >
                   <div class="input-group">
                     <input
                       type="text"
@@ -658,7 +739,9 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="seed_overlay_color">Seed Overlay Color (RGBA)</label>
+                  <label for="seed_overlay_color"
+                    >Seed Overlay Color (RGBA)</label
+                  >
                   <div class="input-group">
                     <input
                       type="text"
@@ -742,7 +825,9 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="pos_80_data">Unknown Data 80 bytes (hexadecimal)</label>
+                  <label for="pos_80_data"
+                    >Unknown Data 80 bytes (hexadecimal)</label
+                  >
                   <div class="input-group">
                     <input
                       type="text"
@@ -766,7 +851,9 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="data_version_12">Data Version 12 (hexadecimal)</label>
+                  <label for="data_version_12"
+                    >Data Version 12 (hexadecimal)</label
+                  >
                   <div class="input-group">
                     <input
                       type="text"
@@ -802,7 +889,9 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="data_version_15">Data Version 15 (hexadecimal)</label>
+                  <label for="data_version_15"
+                    >Data Version 15 (hexadecimal)</label
+                  >
                   <div class="input-group">
                     <input
                       type="text"
@@ -875,10 +964,20 @@
                 </div>
               </div>
               <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-default" data-dismiss="modal">
+                <button
+                  type="button"
+                  class="btn btn-default"
+                  data-dismiss="modal"
+                >
                   Close (Esc)
                 </button>
-                <button type="button" class="btn btn-success" id="editItemsButton">Edit</button>
+                <button
+                  type="button"
+                  class="btn btn-success"
+                  id="editItemsButton"
+                >
+                  Edit
+                </button>
               </div>
             </div>
             <!-- /.modal-content -->
@@ -894,11 +993,17 @@
         <!-- To the right -->
         <div class="float-right d-none d-sm-inline">
           <b>Growtopia Tools</b>,
-          <strong><a href="https://github.com/GuckTubeYT/GrowTools">GuckTube YT</a></strong
+          <strong
+            ><a href="https://github.com/GuckTubeYT/GrowTools"
+              >GuckTube YT</a
+            ></strong
           >.
         </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+        <strong
+          >Copyright &copy; 2014-2021
+          <a href="https://adminlte.io">AdminLTE.io</a>.</strong
+        >
         All rights reserved.
       </footer>
     </div>
@@ -932,35 +1037,47 @@
     <script>
       $(function () {
         if (document.getElementById("using_txt_mode").checked) {
-          document.getElementById("label1").innerHTML = "Decode items.dat to items.txt";
-          document.getElementById("label2").innerHTML = "Encode items.txt to items.dat";
+          document.getElementById("label1").innerHTML =
+            "Decode items.dat to items.txt";
+          document.getElementById("label2").innerHTML =
+            "Encode items.txt to items.dat";
           document.getElementById(
             "label3"
           ).innerHTML = `(Press "Browse items.txt" and find items.txt file)`;
-          document.getElementById("encode_items_dat").innerHTML = "Browse items.txt";
+          document.getElementById("encode_items_dat").innerHTML =
+            "Browse items.txt";
         } else {
-          document.getElementById("label1").innerHTML = "Decode items.dat to items.json";
-          document.getElementById("label2").innerHTML = "Encode items.json to items.dat";
+          document.getElementById("label1").innerHTML =
+            "Decode items.dat to items.json";
+          document.getElementById("label2").innerHTML =
+            "Encode items.json to items.dat";
           document.getElementById(
             "label3"
           ).innerHTML = `(Press "Browse items.json" and find items.json file)`;
-          document.getElementById("encode_items_dat").innerHTML = "Browse items.json";
+          document.getElementById("encode_items_dat").innerHTML =
+            "Browse items.json";
         }
         $("#using_txt_mode").on("change.bootstrapSwitch", function (e) {
           if (e.target.checked) {
-            document.getElementById("label1").innerHTML = "Decode items.dat to items.txt";
-            document.getElementById("label2").innerHTML = "Encode items.txt to items.dat";
+            document.getElementById("label1").innerHTML =
+              "Decode items.dat to items.txt";
+            document.getElementById("label2").innerHTML =
+              "Encode items.txt to items.dat";
             document.getElementById(
               "label3"
             ).innerHTML = `(Press "Browse items.txt" and find items.txt file)`;
-            document.getElementById("encode_items_dat").innerHTML = "Browse items.txt";
+            document.getElementById("encode_items_dat").innerHTML =
+              "Browse items.txt";
           } else {
-            document.getElementById("label1").innerHTML = "Decode items.dat to items.json";
-            document.getElementById("label2").innerHTML = "Encode items.json to items.dat";
+            document.getElementById("label1").innerHTML =
+              "Decode items.dat to items.json";
+            document.getElementById("label2").innerHTML =
+              "Encode items.json to items.dat";
             document.getElementById(
               "label3"
             ).innerHTML = `(Press "Browse items.json" and find items.json file)`;
-            document.getElementById("encode_items_dat").innerHTML = "Browse items.json";
+            document.getElementById("encode_items_dat").innerHTML =
+              "Browse items.json";
           }
         });
         $("#use_editor").bootstrapToggle("off");
@@ -969,7 +1086,9 @@
             document.getElementById("without_editor").classList.add("d-none");
             document.getElementById("with_editor").classList.remove("d-none");
           } else {
-            document.getElementById("without_editor").classList.remove("d-none");
+            document
+              .getElementById("without_editor")
+              .classList.remove("d-none");
             document.getElementById("with_editor").classList.add("d-none");
           }
         });

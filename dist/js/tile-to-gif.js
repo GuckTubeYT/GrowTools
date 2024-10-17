@@ -137,7 +137,7 @@ function apply_and_preview() {
         timer: 3000
     }).fire({
         icon: 'error',
-        title: "Please input the correct per tile Width and Height! until it fit per tile image."
+        title: "Please input the correct per tile Width and Height! until it fit per Tile Editor."
     })
 
     const total_x = canvas1.width / Number(image_per_tile_width.value);

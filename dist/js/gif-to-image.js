@@ -21,6 +21,7 @@ let is_hidden = true;
 
 window.onload = function() {
     temp_canvas.style.display = "none";
+    document.getElementById("visitor_img").src = "https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2FGuckTubeYT%2FGrowTools&countColor=%2337d67a"
 }
 
 var saveDataBuffer = (function () {
@@ -79,13 +80,13 @@ document.getElementById('browse_gif_file').addEventListener('click', function() 
 });
 
 async function extract_to_single_image() {
+    extract_to_single_image_btn.disabled = true;
+    extract_to_single_image_btn.innerText = `Extract it to to Zipped Single Image! (Processing...)`
+    
     const gif = new SuperGif({ gif: gif_img } );
     const zip = new JSZip();
 
     gif.load(async function() {
-        extract_to_single_image_btn.disabled = true;
-        extract_to_single_image_btn.innerText = `Extract it to to Zipped Single Image! (Processing...)`
-        
         const gif_len = gif.get_length();
         for (let a = 0; a < gif_len; a++) {
             gif.move_to(a);

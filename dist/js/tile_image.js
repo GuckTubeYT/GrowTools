@@ -19,6 +19,10 @@ const image_width_create_tile = document.getElementById("image_width_create_tile
 const image_height_create_tile = document.getElementById("image_height_create_tile");
 const total_tile_in_x = document.getElementById("total_tile_in_x");
 const total_tile_in_y = document.getElementById("total_tile_in_y");
+const mouse_event_log = document.getElementById("mouse_event_log");
+const using_mouse_event = document.getElementById("using_mouse_event");
+const mouse_event_plaintext = document.getElementById("mouse_event_plaintext");
+const mouse_event_action = document.getElementById("mouse_event_action");
 
 const context1 = canvas1.getContext('2d');
 const context2 = canvas2.getContext('2d');
@@ -39,12 +43,138 @@ const current_tile_pos = [];
 
 let img = null;
 let img_change = null;
+let tile_click = false;
+let current_tile = [];
+
+function mouse_event_listener() {
+    if (using_mouse_event.checked) {
+        mouse_event_log.style.display = "";
+
+        canvas1.onmouseleave = function(event) {
+            if (tile_click) {
+                tile_click = false;
+                current_tile = []
+
+                mouse_event_action.innerText = `Action: None`
+            }
+        }
+        canvas1.onmousemove = function(event) {
+            const rect = canvas1.getBoundingClientRect();
+            const tileX = Math.floor((event.clientX - rect.left) / (parseInt(tileWidthInput.value) || 32));
+            const tileY = Math.floor((event.clientY - rect.top) / (parseInt(tileHeightInput.value) || 32));
+            
+            mouse_event_plaintext.innerText = `Your mouse position is in tile X: ${tileX} and Y: ${tileY}`
+            if (tile_click) {
+                mouse_event_action.innerText = `Action: Move tile from X: ${current_tile[0]} and Y: ${current_tile[1]} to X: ${tileX} and Y: ${tileY}`
+            }
+        }
+        canvas1.onmousedown = function(event) {
+            const rect = canvas1.getBoundingClientRect();
+            tile_click = true;
+            current_tile = [Math.floor((event.clientX - rect.left) / (parseInt(tileWidthInput.value) || 32)), Math.floor((event.clientY - rect.top) / (parseInt(tileHeightInput.value) || 32))]
+        }
+        canvas1.onmouseup = function(event) {
+            if (!tile_click) return;
+            tile_click = false;
+
+            const rect = canvas1.getBoundingClientRect();
+            const tileX = Math.floor((event.clientX - rect.left) / (parseInt(tileWidthInput.value) || 32));
+            const tileY = Math.floor((event.clientY - rect.top) / (parseInt(tileHeightInput.value) || 32));
+
+            if (current_tile[0] == tileX && current_tile[1] == tileY) {
+                $("#modal-tile-modify").modal("show");
+                canvas2.width = Number(tileWidthInput.value) * 3;
+                canvas2.height = Number(tileHeightInput.value) * 3;
+
+                single_tile_div.style.height = Number(current_size_single_tile_div[0].slice(0, -2)) >= (Number(tileHeightInput.value) * 3) ? `${Number(tileHeightInput.value) * 3}px` : current_size_single_tile_div[0];
+                single_tile_div.style.width = Number(current_size_single_tile_div[1].slice(0, -2)) >= (Number(tileWidthInput.value) * 3) ? `${Number(tileWidthInput.value) * 3}px` : current_size_single_tile_div[1];
+
+                prev_height.value = single_tile_div.style.height.slice(0, -2);
+                prev_width.value = single_tile_div.style.width.slice(0, -2);
+                context2.imageSmoothingEnabled = prev_img_filter.value === "Nearest" ? false : true;
+
+                context2.clearRect(0, 0, canvas2.width, canvas2.height);
+
+                current_tile_pos[0] = tileX
+                current_tile_pos[1] = tileY
+
+                context2.drawImage(canvas4, tileX * Number(tileWidthInput.value), tileY * Number(tileHeightInput.value), Number(tileWidthInput.value), Number(tileHeightInput.value), 0, 0, canvas2.width, canvas2.height);
+                
+                canvas3.width = Number(tileWidthInput.value)
+                canvas3.height = Number(tileHeightInput.value);
+
+                context3.clearRect(0, 0, canvas3.width, canvas3.height);
+                context3.drawImage(canvas4, tileX * Number(tileWidthInput.value), tileY * Number(tileHeightInput.value), Number(tileWidthInput.value), Number(tileHeightInput.value), 0, 0, canvas3.width, canvas3.height);
+                
+                document.getElementById("modal-title-tile").innerHTML = `Edit Tile (X: ${tileX}, Y: ${tileY})`;
+            } else {
+                canvas_temp.width = Number(tileWidthInput.value);
+                canvas_temp.height = Number(tileHeightInput.value);
+                context5.clearRect(0, 0, canvas_temp.width, canvas_temp.height);
+                context5.drawImage(canvas4, canvas_temp.width * current_tile[0], canvas_temp.height * current_tile[1], canvas_temp.width, canvas_temp.height, 0, 0, canvas_temp.width, canvas_temp.height);
+                context4.clearRect(canvas_temp.width * current_tile[0], canvas_temp.height * current_tile[1], canvas_temp.width, canvas_temp.height);
+                context4.drawImage(canvas4, canvas_temp.width * tileX, canvas_temp.height * tileY, canvas_temp.width, canvas_temp.height, canvas_temp.width * current_tile[0], canvas_temp.height * current_tile[1], canvas_temp.width, canvas_temp.height);
+                context4.clearRect(canvas_temp.width * tileX, canvas_temp.height * tileY, canvas_temp.width, canvas_temp.height);
+                context4.drawImage(canvas_temp, 0, 0, canvas_temp.width, canvas_temp.height, canvas_temp.width * tileX, canvas_temp.height * tileY, canvas_temp.width, canvas_temp.height);
+                canvas_draw();
+
+                mouse_event_action.innerText = `Action: None`
+            }
+        }
+
+        canvas1.onclick = null;
+    } else {
+        mouse_event_log.style.display = "none";
+
+        canvas1.onmousedown = null
+        canvas1.onmouseleave = null
+        canvas1.onmousemove = null
+        canvas1.onmouseup = null
+
+        canvas1.onclick = function(event) {
+            const rect = canvas1.getBoundingClientRect();
+            const tileX = Math.floor((event.clientX - rect.left) / (parseInt(tileWidthInput.value) || 32));
+            const tileY = Math.floor((event.clientY - rect.top) / (parseInt(tileHeightInput.value) || 32));
+
+            $("#modal-tile-modify").modal("show");
+            canvas2.width = Number(tileWidthInput.value) * 3;
+            canvas2.height = Number(tileHeightInput.value) * 3;
+
+            single_tile_div.style.height = Number(current_size_single_tile_div[0].slice(0, -2)) >= (Number(tileHeightInput.value) * 3) ? `${Number(tileHeightInput.value) * 3}px` : current_size_single_tile_div[0];
+            single_tile_div.style.width = Number(current_size_single_tile_div[1].slice(0, -2)) >= (Number(tileWidthInput.value) * 3) ? `${Number(tileWidthInput.value) * 3}px` : current_size_single_tile_div[1];
+
+            prev_height.value = single_tile_div.style.height.slice(0, -2);
+            prev_width.value = single_tile_div.style.width.slice(0, -2);
+            context2.imageSmoothingEnabled = prev_img_filter.value === "Nearest" ? false : true;
+
+            context2.clearRect(0, 0, canvas2.width, canvas2.height);
+
+            current_tile_pos[0] = tileX
+            current_tile_pos[1] = tileY
+
+            context2.drawImage(canvas4, tileX * Number(tileWidthInput.value), tileY * Number(tileHeightInput.value), Number(tileWidthInput.value), Number(tileHeightInput.value), 0, 0, canvas2.width, canvas2.height);
+
+            canvas3.width = Number(tileWidthInput.value)
+            canvas3.height = Number(tileHeightInput.value);
+
+            context3.clearRect(0, 0, canvas3.width, canvas3.height);
+            context3.drawImage(canvas4, tileX * Number(tileWidthInput.value), tileY * Number(tileHeightInput.value), Number(tileWidthInput.value), Number(tileHeightInput.value), 0, 0, canvas3.width, canvas3.height);
+
+            document.getElementById("modal-title-tile").innerHTML = `Edit Tile (X: ${tileX}, Y: ${tileY})`;
+        }
+
+    }
+}
 
 window.onload = function() {
+    document.getElementById("visitor_img").src = "https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2FGuckTubeYT%2FGrowTools&countColor=%2337d67a"
     dw_tile.disabled = true;
     extract_tile_to_per_image_btn.disabled = true;
     reposition_tile_btn.disabled = true;
+    mouse_event_listener();
 }
+
+using_mouse_event.onchange = mouse_event_listener
 
 function is_image_empty(imageData) {
     for (let i = 0; i < imageData.data.length; i += 4) {
@@ -147,39 +277,6 @@ document.getElementById('browse_file_image').addEventListener('click', function(
 
 tileWidthInput.addEventListener('input', canvas_draw);
 tileHeightInput.addEventListener('input', canvas_draw);
-
-canvas1.addEventListener('click', function(event) {
-    img_change = null;
-    $("#modal-tile-modify").modal("show");
-    canvas2.width = Number(tileWidthInput.value) * 3;
-    canvas2.height = Number(tileHeightInput.value) * 3;
-
-    single_tile_div.style.height = Number(current_size_single_tile_div[0].slice(0, -2)) >= (Number(tileHeightInput.value) * 3) ? `${Number(tileHeightInput.value) * 3}px` : current_size_single_tile_div[0];
-    single_tile_div.style.width = Number(current_size_single_tile_div[1].slice(0, -2)) >= (Number(tileWidthInput.value) * 3) ? `${Number(tileWidthInput.value) * 3}px` : current_size_single_tile_div[1];
-
-    prev_height.value = single_tile_div.style.height.slice(0, -2);
-    prev_width.value = single_tile_div.style.width.slice(0, -2);
-    context2.imageSmoothingEnabled = prev_img_filter.value === "Nearest" ? false : true;
-
-    context2.clearRect(0, 0, canvas2.width, canvas2.height);
-    const rect = canvas1.getBoundingClientRect();
-
-    const tileX = Math.floor((event.clientX - rect.left) / (parseInt(tileWidthInput.value) || 32));
-    const tileY = Math.floor((event.clientY - rect.top) / (parseInt(tileHeightInput.value) || 32));
-
-    current_tile_pos[0] = tileX
-    current_tile_pos[1] = tileY
-
-    context2.drawImage(canvas4, tileX * Number(tileWidthInput.value), tileY * Number(tileHeightInput.value), Number(tileWidthInput.value), Number(tileHeightInput.value), 0, 0, canvas2.width, canvas2.height);
-    
-    canvas3.width = Number(tileWidthInput.value)
-    canvas3.height = Number(tileHeightInput.value);
-
-    context3.clearRect(0, 0, canvas3.width, canvas3.height);
-    context3.drawImage(canvas4, tileX * Number(tileWidthInput.value), tileY * Number(tileHeightInput.value), Number(tileWidthInput.value), Number(tileHeightInput.value), 0, 0, canvas3.width, canvas3.height);
-    
-    document.getElementById("modal-title-tile").innerHTML = `Edit Tile (X: ${tileX}, Y: ${tileY})`;
-});
 
 function update_prev_image() {
     canvas2.width = Number(prev_width.value);
@@ -378,7 +475,7 @@ function show_tile_zip_dialog() {
         timer: 3000
     }).fire({
         icon: 'error',
-        title: "Please input the correct per tile Width and Height! until it fit per tile image."
+        title: "Please input the correct per tile Width and Height! until it fit per Tile Editor."
     })
     
     $("#modal-tile-to-per-image-zip").modal("show");
@@ -459,7 +556,7 @@ async function extract_tile_to_per_image() {
         timer: 3000
     }).fire({
         icon: 'success',
-        title: "The tile image was successfully extracted into a single PNGs!"
+        title: "The Tile Editor was successfully extracted into a single PNGs!"
     })
 }
 

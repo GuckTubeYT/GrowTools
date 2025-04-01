@@ -383,6 +383,10 @@ function process_item_encoder(result, using_txt) {
                     write_buffer_number(mem_pos, 9, result1[50])
                     mem_pos += 9;
                 }
+                if (version >= 21) {
+                    write_buffer_number(mem_pos, 2, result1[51])
+                    mem_pos += 2;
+                }
             }
         }
     } else {

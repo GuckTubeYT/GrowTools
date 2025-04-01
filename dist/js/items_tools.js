@@ -944,7 +944,6 @@ function editItems(posArray) {
     document.getElementById("int_version_17").value = data_json.items[posArray].int_version_17
     document.getElementById("int_version_18").value = data_json.items[posArray].int_version_18
     document.getElementById("int_version_19").value = data_json.items[posArray].int_version_19
-    document.getElementById("int_version_20").value = data_json.items[posArray].int_version_20
     document.getElementById("int_version_21").value = data_json.items[posArray].int_version_21
     document.getElementById("editItemsButton").setAttribute("onclick", `processEditItems(${posArray})`)
 }
@@ -1011,7 +1010,6 @@ function processEditItems(posArray) {
     data_json.items[posArray].int_version_17 = document.getElementById("int_version_17").value
     data_json.items[posArray].int_version_18 = document.getElementById("int_version_18").value
     data_json.items[posArray].int_version_19 = document.getElementById("int_version_19").value
-    data_json.items[posArray].int_version_20 = document.getElementById("int_version_20").value
     data_json.items[posArray].int_version_21 = document.getElementById("int_version_21").value
     $("#modal-editItems").modal("hide")
 }

@@ -387,6 +387,12 @@ function process_item_encoder(result, using_txt) {
                     write_buffer_number(mem_pos, 2, result1[51])
                     mem_pos += 2;
                 }
+                if (version >= 22) {
+                    write_buffer_number(mem_pos, 2, result1[52].length);
+                    mem_pos += 2;
+                    write_buffer_string(mem_pos, result1[52].length, result1[52])
+                    mem_pos += result1[52].length
+                }
             }
         }
     } else {
@@ -534,6 +540,12 @@ function process_item_encoder(result, using_txt) {
                 write_buffer_number(mem_pos, 2, result.items[a].int_version_21)
                 mem_pos += 2;
             }
+            if (result.version >= 22) {
+                write_buffer_number(mem_pos, 2, result.items[a].str_version_22.length);
+                mem_pos += 2;
+                write_buffer_string(mem_pos, result.items[a].str_version_22.length, result.items[a].str_version_22)
+                mem_pos += result.items[a].str_version_22.length
+            }
         }
     }
 }
@@ -584,7 +596,7 @@ function item_decoder(file, using_editor) {
         var version = read_buffer_number(arrayBuffer, 0, 2);
         var item_count = read_buffer_number(arrayBuffer, 2, 4);
 
-        if (version > 21) {
+        if (version > 22) {
             return Swal.mixin({
                 toast: true,
                 position: 'top-end',
@@ -777,6 +789,13 @@ function item_decoder(file, using_editor) {
                 mem_pos += 2;
             }
 
+            if (version >= 22) {
+                len = read_buffer_number(arrayBuffer, mem_pos, 2)
+                mem_pos += 2;
+                var str_version_22 = read_buffer_string(arrayBuffer, mem_pos, len);
+                mem_pos += len
+            }
+
             if (item_id != a) console.log(`Unordered Items at ${a}`)
 
             data_json.items[a] = {}
@@ -847,6 +866,7 @@ function item_decoder(file, using_editor) {
             data_json.items[a].int_version_18 = int_version_18
             data_json.items[a].int_version_19 = int_version_19
             data_json.items[a].int_version_21 = int_version_21
+            data_json.items[a].str_version_22 = str_version_22
         }
         if (using_editor) {
             if (!$.fn.dataTable.isDataTable("#itemsList")) {
@@ -949,6 +969,7 @@ function editItems(posArray) {
     document.getElementById("int_version_18").value = data_json.items[posArray].int_version_18
     document.getElementById("int_version_19").value = data_json.items[posArray].int_version_19
     document.getElementById("int_version_21").value = data_json.items[posArray].int_version_21
+    document.getElementById("str_version_22").value = data_json.items[posArray].str_version_22
     document.getElementById("editItemsButton").setAttribute("onclick", `processEditItems(${posArray})`)
 }
 
@@ -1015,5 +1036,6 @@ function processEditItems(posArray) {
     data_json.items[posArray].int_version_18 = document.getElementById("int_version_18").value
     data_json.items[posArray].int_version_19 = document.getElementById("int_version_19").value
     data_json.items[posArray].int_version_21 = document.getElementById("int_version_21").value
+    data_json.items[posArray].str_version_22 = document.getElementById("str_version_22").value
     $("#modal-editItems").modal("hide")
 }

@@ -61,7 +61,10 @@ function hex(arrayBuffer, is_without_space) {
  */
 function read_buffer_number(buffer, pos, len) {
     let value = 0;
-    for (let a = 0; a < len; a++) value += buffer[pos + a] << (a * 8)
+    for (let a = 0; a < len; a++) {
+        if (a < 4) value += buffer[pos + a] << (a * 8)
+        else value += buffer[pos + a] * Math.pow(2, a * 8)
+    }
 
     return value;
 }

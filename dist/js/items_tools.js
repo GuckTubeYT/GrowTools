@@ -391,13 +391,11 @@ function process_item_encoder(result, using_txt) {
                     write_buffer_number(mem_pos, 2, result1[51])
                     mem_pos += 2;
                 }
-
                 if (version >= 22) {
-                    len = result1[52].length;
-                    write_buffer_number(mem_pos, 2, len);
+                    write_buffer_number(mem_pos, 2, result1[52].length);
                     mem_pos += 2;
-                    write_buffer_string(mem_pos, len, result1[52]);
-                    mem_pos += len;
+                    write_buffer_string(mem_pos, result1[52].length, result1[52])
+                    mem_pos += result1[52].length
                 }
 
                 if (version >= 23) {
@@ -569,13 +567,11 @@ function process_item_encoder(result, using_txt) {
                 write_buffer_number(mem_pos, 2, result.items[a].int_version_21)
                 mem_pos += 2;
             }
-
             if (result.version >= 22) {
-                len = result.items[a].description.length;
-                write_buffer_number(mem_pos, 2, len);
+                write_buffer_number(mem_pos, 2, result.items[a].str_version_22.length);
                 mem_pos += 2;
-                write_buffer_string(mem_pos, len, result.items[a].description);
-                mem_pos += len;
+                write_buffer_string(mem_pos, result.items[a].str_version_22.length, result.items[a].str_version_22)
+                mem_pos += result.items[a].str_version_22.length
             }
 
             if (result.version >= 23) {
@@ -846,7 +842,7 @@ function item_decoder(file, using_editor) {
             if (version >= 22) {
                 len = read_buffer_number(arrayBuffer, mem_pos, 2)
                 mem_pos += 2;
-                var description = read_buffer_string(arrayBuffer, mem_pos, len);
+                var str_version_22 = read_buffer_string(arrayBuffer, mem_pos, len);
                 mem_pos += len;
             }
 
@@ -942,7 +938,7 @@ function item_decoder(file, using_editor) {
             data_json.items[a].int_version_18 = int_version_18
             data_json.items[a].int_version_19 = int_version_19
             data_json.items[a].int_version_21 = int_version_21
-            data_json.items[a].description = description
+            data_json.items[a].str_version_22 = str_version_22
             data_json.items[a].data_version_23 = data_version_23
             data_json.items[a].int_version_24 = int_version_24
             data_json.items[a].hit_sound_fx = hit_sound_fx
@@ -1050,7 +1046,7 @@ function editItems(posArray) {
     document.getElementById("int_version_18").value = data_json.items[posArray].int_version_18
     document.getElementById("int_version_19").value = data_json.items[posArray].int_version_19
     document.getElementById("int_version_21").value = data_json.items[posArray].int_version_21
-    document.getElementById("description").value = data_json.items[posArray].description
+    document.getElementById("str_version_22").value = data_json.items[posArray].str_version_22
     document.getElementById("data_version_23").value = data_json.items[posArray].data_version_23
     document.getElementById("int_version_24").value = data_json.items[posArray].int_version_24
     document.getElementById("hit_sound_fx").value = data_json.items[posArray].hit_sound_fx
@@ -1122,7 +1118,7 @@ function processEditItems(posArray) {
     data_json.items[posArray].int_version_18 = document.getElementById("int_version_18").value
     data_json.items[posArray].int_version_19 = document.getElementById("int_version_19").value
     data_json.items[posArray].int_version_21 = document.getElementById("int_version_21").value
-    data_json.items[posArray].description = document.getElementById("description").value
+    data_json.items[posArray].str_version_22 = document.getElementById("str_version_22").value
     data_json.items[posArray].data_version_23 = document.getElementById("data_version_23").value
     data_json.items[posArray].int_version_24 = document.getElementById("int_version_24").value
     data_json.items[posArray].hit_sound_fx = document.getElementById("hit_sound_fx").value

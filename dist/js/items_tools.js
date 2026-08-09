@@ -391,6 +391,37 @@ function process_item_encoder(result, using_txt) {
                     write_buffer_number(mem_pos, 2, result1[51])
                     mem_pos += 2;
                 }
+
+                if (version >= 22) {
+                    len = result1[52].length;
+                    write_buffer_number(mem_pos, 2, len);
+                    mem_pos += 2;
+                    write_buffer_string(mem_pos, len, result1[52]);
+                    mem_pos += len;
+                }
+
+                if (version >= 23) {
+                    hexStringToArrayBuffer(mem_pos, result1[53]);
+                    mem_pos += 4;
+                }
+
+                if (version >= 24) {
+                    encoded_buffer_file[mem_pos++] = Number(result1[54]);
+                }
+
+                if (version >= 25) {
+                    len = result1[55].length;
+                    write_buffer_number(mem_pos, 2, len);
+                    mem_pos += 2;
+                    write_buffer_string(mem_pos, len, result1[55]);
+                    mem_pos += len;
+                    write_buffer_number(mem_pos, 4, result1[56]);
+                    mem_pos += 4;
+                }
+
+                if (version >= 26) {
+                    encoded_buffer_file[mem_pos++] = Number(result1[57]);
+                }
             }
         }
     } else {
@@ -538,6 +569,37 @@ function process_item_encoder(result, using_txt) {
                 write_buffer_number(mem_pos, 2, result.items[a].int_version_21)
                 mem_pos += 2;
             }
+
+            if (result.version >= 22) {
+                len = result.items[a].description.length;
+                write_buffer_number(mem_pos, 2, len);
+                mem_pos += 2;
+                write_buffer_string(mem_pos, len, result.items[a].description);
+                mem_pos += len;
+            }
+
+            if (result.version >= 23) {
+                hexStringToArrayBuffer(mem_pos, result.items[a].data_version_23);
+                mem_pos += 4;
+            }
+
+            if (result.version >= 24) {
+                encoded_buffer_file[mem_pos++] = Number(result.items[a].int_version_24);
+            }
+
+            if (result.version >= 25) {
+                len = result.items[a].hit_sound_fx.length;
+                write_buffer_number(mem_pos, 2, len);
+                mem_pos += 2;
+                write_buffer_string(mem_pos, len, result.items[a].hit_sound_fx);
+                mem_pos += len;
+                write_buffer_number(mem_pos, 4, result.items[a].hit_sound_fx_hash);
+                mem_pos += 4;
+            }
+
+            if (result.version >= 26) {
+                encoded_buffer_file[mem_pos++] = Number(result.items[a].int_version_26);
+            }
         }
     }
 }
@@ -588,7 +650,7 @@ function item_decoder(file, using_editor) {
         var version = read_buffer_number(arrayBuffer, 0, 2);
         var item_count = read_buffer_number(arrayBuffer, 2, 4);
 
-        if (version > 21) {
+        if (version > 26) {
             return Swal.mixin({
                 toast: true,
                 position: 'top-end',
@@ -781,6 +843,35 @@ function item_decoder(file, using_editor) {
                 mem_pos += 2;
             }
 
+            if (version >= 22) {
+                len = read_buffer_number(arrayBuffer, mem_pos, 2)
+                mem_pos += 2;
+                var description = read_buffer_string(arrayBuffer, mem_pos, len);
+                mem_pos += len;
+            }
+
+            if (version >= 23) {
+                var data_version_23 = hex(arrayBuffer.slice(mem_pos, mem_pos + 4), document.getElementById("using_txt_mode").checked).toUpperCase()
+                mem_pos += 4;
+            }
+
+            if (version >= 24) {
+                var int_version_24 = arrayBuffer[mem_pos++];
+            }
+
+            if (version >= 25) {
+                len = read_buffer_number(arrayBuffer, mem_pos, 2)
+                mem_pos += 2;
+                var hit_sound_fx = read_buffer_string(arrayBuffer, mem_pos, len);
+                mem_pos += len;
+                var hit_sound_fx_hash = read_buffer_number(arrayBuffer, mem_pos, 4);
+                mem_pos += 4;
+            }
+
+            if (version >= 26) {
+                var int_version_26 = arrayBuffer[mem_pos++];
+            }
+
             if (item_id != a) console.log(`Unordered Items at ${a}`)
 
             data_json.items[a] = {}
@@ -851,6 +942,12 @@ function item_decoder(file, using_editor) {
             data_json.items[a].int_version_18 = int_version_18
             data_json.items[a].int_version_19 = int_version_19
             data_json.items[a].int_version_21 = int_version_21
+            data_json.items[a].description = description
+            data_json.items[a].data_version_23 = data_version_23
+            data_json.items[a].int_version_24 = int_version_24
+            data_json.items[a].hit_sound_fx = hit_sound_fx
+            data_json.items[a].hit_sound_fx_hash = hit_sound_fx_hash
+            data_json.items[a].int_version_26 = int_version_26
         }
         if (using_editor) {
             if (!$.fn.dataTable.isDataTable("#itemsList")) {
@@ -953,6 +1050,12 @@ function editItems(posArray) {
     document.getElementById("int_version_18").value = data_json.items[posArray].int_version_18
     document.getElementById("int_version_19").value = data_json.items[posArray].int_version_19
     document.getElementById("int_version_21").value = data_json.items[posArray].int_version_21
+    document.getElementById("description").value = data_json.items[posArray].description
+    document.getElementById("data_version_23").value = data_json.items[posArray].data_version_23
+    document.getElementById("int_version_24").value = data_json.items[posArray].int_version_24
+    document.getElementById("hit_sound_fx").value = data_json.items[posArray].hit_sound_fx
+    document.getElementById("hit_sound_fx_hash").value = data_json.items[posArray].hit_sound_fx_hash
+    document.getElementById("int_version_26").value = data_json.items[posArray].int_version_26
     document.getElementById("editItemsButton").setAttribute("onclick", `processEditItems(${posArray})`)
 }
 
@@ -1019,5 +1122,11 @@ function processEditItems(posArray) {
     data_json.items[posArray].int_version_18 = document.getElementById("int_version_18").value
     data_json.items[posArray].int_version_19 = document.getElementById("int_version_19").value
     data_json.items[posArray].int_version_21 = document.getElementById("int_version_21").value
+    data_json.items[posArray].description = document.getElementById("description").value
+    data_json.items[posArray].data_version_23 = document.getElementById("data_version_23").value
+    data_json.items[posArray].int_version_24 = document.getElementById("int_version_24").value
+    data_json.items[posArray].hit_sound_fx = document.getElementById("hit_sound_fx").value
+    data_json.items[posArray].hit_sound_fx_hash = document.getElementById("hit_sound_fx_hash").value
+    data_json.items[posArray].int_version_26 = document.getElementById("int_version_26").value
     $("#modal-editItems").modal("hide")
 }

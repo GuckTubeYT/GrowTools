@@ -76,7 +76,8 @@ function read_buffer_number(buffer, pos, len) {
  */
 function write_buffer_number(pos, len, value) {
     for (let a = 0; a < len; a++) {
-        encoded_buffer_file[pos + a] = (value >> (a * 8)) & 255;
+        if (a < 4) encoded_buffer_file[pos + a] = (value >> (a * 8)) & 255;
+        else encoded_buffer_file[pos + a] = ((Math.floor(value / Math.pow(2, a * 8)) % 256) + 256) % 256;
     }
 }
 
